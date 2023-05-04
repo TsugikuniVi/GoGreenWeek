@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Go Green Week</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <h1>Go Green Week</h1>
+    <div id="form-container">
+      <form id="question-form">
+        <label for="board-number" class="board-number">Enter board number:</label>
+        <br>
+        <input type="number" id="board-number" name="board-number" />
+        <br>
+        <button type="submit">Get Your Question</button>
+      </form>
+    </div>
+    <div id="question-container"></div>
+
+    <script>
+      const formContainer = document.getElementById("form-container");
+      const questionContainer = document.getElementById("question-container");
+      let questionFetched = false;
+
+      document
+        .getElementById("question-form")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault();
+          const boardNumber = document.getElementById("board-number").value;
+          let difficulty = "";
+          if (boardNumber > 20) {
+            difficulty = "hard";
+          } else if (boardNumber > 10) {
+            difficulty = "medium";
+          } else {
+            difficulty = "easy";
+          }
+          const response = await fetch(`/question/${difficulty}`);
+          const data = await response.json();
+
+          // Remove the form from the page and show the question
+          formContainer.style.display = "none";
+          questionContainer.innerHTML = `
+          <h2>${data.question}</h2>
+          <form id="answer-form">
+            <label for="answer">Answer:</label>
+            <input type="text" id="answer" name="answer">
+            <button type="submit">Submit</button>
+          </form>
+        `;
+
+          // Add an event listener to the answer form to check the answer
+          document
+            .getElementById("answer-form")
+            .addEventListener("submit", (event) => {
+              event.preventDefault();
+              const answer = document.getElementById("answer").value;
+              if (answer === data.answer) {
+                alert("Correct!");
+                questionContainer.innerHTML = "";
+                formContainer.style.display = "block";
+                questionFetched = false;
+              } else {
+                alert("Incorrect. Try again.");
+              }
+            });
+
+          questionFetched = true;
+        });
+
+      // If a question is already being displayed, hide the form
+      if (questionFetched) {
+        formContainer.style.display = "none";
+      }
+    </script>
+  </body>
+</html>

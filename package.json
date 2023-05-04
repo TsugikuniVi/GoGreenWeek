@@ -1,0 +1,14 @@
+{
+  "name": "gogreenweek",
+  "version": "1.0.0",
+  "description": "A web app created for Go Green Week",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "author": "SaayujSajith",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
