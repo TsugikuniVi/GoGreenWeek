@@ -7,6 +7,9 @@ body {
   text-align: center;
   font-family: "Courier New", Courier, monospace;
   color: #4c3d3d;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 #board-number {
@@ -33,3 +36,16 @@ input[type=number] {
     color: #c07f00;
     outline: none;
   }
+
+footer {
+  font-size:small;
+  margin-top: auto;
+}
+
+footer a {
+  color: black;
+}
+
+footer a b {
+  font-size: small;
+}
