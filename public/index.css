@@ -1,5 +1,5 @@
 * {
-    font-size: 150%;
+  font-size: 150%;
 }
 
 body {
@@ -7,14 +7,13 @@ body {
   text-align: center;
   font-family: "Courier New", Courier, monospace;
   color: #4c3d3d;
-  min-height: 100vh;
+  min-height: 95vh;
   display: flex;
   flex-direction: column;
 }
 
 #board-number {
   margin: 15px;
-
 }
 
 button {
@@ -30,15 +29,15 @@ button {
   margin: 5px;
 }
 
-input[type=number] {
-    border: none;
-    border-bottom: 2px solid  #c07f00;;
-    color: #c07f00;
-    outline: none;
-  }
+input[type="number"] {
+  border: none;
+  border-bottom: 2px solid #c07f00;
+  color: #c07f00;
+  outline: none;
+}
 
 footer {
-  font-size:small;
+  font-size: small;
   margin-top: auto;
 }
 

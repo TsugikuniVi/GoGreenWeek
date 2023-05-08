@@ -56,38 +56,37 @@ const questions = {
     },
     {
       question: "What is the value of x in the equation 3x - 5 = 7x - 19?",
-      answer: "3",
+      answer: "7/2",
     },
     {
       question: "Solve for x: 2x + 7 = 3x - 4",
-      answer: "-11",
+      answer: "11",
     },
     {
       question: "Find the value of x if 4(x + 5) = 56",
-      answer: "6",
+      answer: "9",
     },
     {
       question: "Solve for x: 3(x - 2) = 27",
       answer: "11",
     },
     {
-      question:
-        "What is the value of x in the equation 2(x + 3) - 3(x - 1) = 1?",
-      answer: "1/5",
+      question: "What is the value of x in the equation 2(x + 3) - 3(x - 1) = 1?",
+      answer: "8",
     },
     {
       question: "Solve for x: 2(3x - 1) = 4x + 7",
-      answer: "5",
+      answer: "9/2",
     },
     {
       question: "Find the value of x if 2x - 5 = 11 - 3x",
-      answer: "2",
+      answer: "16/5",
     },
   ],
   hard: [
     {
       question: "What is the value of x in the equation 2x - 3 = 7x + 8?",
-      answer: "-2.2",
+      answer: "-11/5",
     },
     {
       question: "Solve for x: 3x + 4 = 2x - 5",
@@ -95,16 +94,15 @@ const questions = {
     },
     {
       question: "Find the value of x if 2(3x - 4) = 14x + 6",
-      answer: "2",
+      answer: "-7/4",
     },
     {
       question: "Solve for x: 2x + 3(x - 4) = 9",
-      answer: "5",
+      answer: "21/5",
     },
     {
-      question:
-        "What is the value of x in the equation 5(2x - 1) - 2(3x + 1) = -8?",
-      answer: "3/7",
+      question: "What is the value of x in the equation 5(2x - 1) - 2(3x + 1) = -8?",
+      answer: "-1/4",
     },
     {
       question: "What is the value of x in the equation 4x + 3 = 3x + 7?",
@@ -112,40 +110,15 @@ const questions = {
     },
     {
       question: "Find the value of x if (x + 3)/5 - 2 = (3x - 1)/2",
-      answer: "11",
-    },
-    {
-      question: "Solve for x: 2x - 1 = x^2 - 6x + 5",
-      answer: "3",
-    },
-    {
-      question:
-        "What is the value of x in the equation (x + 2)/(2x - 1) = (x - 1)/(x + 3)?",
-      answer: "-1",
-    },
-    {
-      question: "Solve for x: 4x + 7 = 2(x^2 - 3)",
-      answer: "2, -1/2",
+      answer: "-9/13",
     },
     {
       question: "Find the value of x if (x - 3)/4 - (x + 2)/2 = 1",
-      answer: "9",
+      answer: "-11",
     },
     {
       question: "Solve for x: 3(x - 1) - 4(x + 2) = 5 - 2x",
-      answer: "-2",
-    },
-    {
-      question: "What is the value of x in the equation 2x - 1 = sqrt(3x + 4)?",
-      answer: "3",
-    },
-    {
-      question: "Solve for x: (x - 2)/(x + 3) + (x + 1)/(x - 4) = 2",
-      answer: "-5/3",
-    },
-    {
-      question: "Find the value of x if 4/x + 1 = 2/(x - 2)",
-      answer: "4",
+      answer: "16",
     },
   ],
 };
