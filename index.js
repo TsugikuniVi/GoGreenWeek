@@ -17,6 +17,10 @@ app.get("/question/:difficulty", (req, res) => {
   res.send(randomQuestion);
 });
 
+const examRouter = require('./routes/exam')
+
+app.use('/exam', examRouter)
+
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
 });
