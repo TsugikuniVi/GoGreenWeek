@@ -1,0 +1,30 @@
+body {
+  background-color: #fff7d4;
+  font-family: "Courier New", Courier, monospace;
+  color: #4c3d3d;
+  min-height: 95vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h3{
+    text-align: center;
+}
+
+
+ul li {
+  list-style-type: none;
+}
+
+footer {
+  font-size: small;
+  margin-top: auto;
+}
+
+footer a {
+  color: black;
+}
+
+footer a b {
+  font-size: small;
+}

@@ -10,6 +10,10 @@ app.get(["/", "/easy", "/medium", "/hard"], (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
+app.get("/jobs",  (req, res) => { 
+  res.sendFile(__dirname + "/public/jobs.html");
+ })
+
 app.get("/question/:difficulty", (req, res) => {
   const { difficulty } = req.params;
   const questionsByDifficulty = questions[difficulty];
