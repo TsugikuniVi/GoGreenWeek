@@ -30,8 +30,9 @@
       let mediumQuestion3;
       let hardQuestion;
       console.log(questionsFetched);
+      fetchQuestions();
 
-      startbtn.addEventListener("click", fetchQuestions);
+      startbtn.addEventListener("click", renderQuestions);
 
       async function fetchQuestions() {
         async function fetchEasyQuestion() {
@@ -123,7 +124,9 @@
           } ANSWERS WRONG!</h1>`;
           if (correctAnswers < 3) {
             resultContainer.innerHTML += `<button onClick={location.reload()} class="btn btn-primary mt-3">Try Again</button>`;
-          } else {resultContainer.innerHTML += `<h2>YOU PASSED!</h2><br><button><a href='/'>Go Back?</a></button>`}
+          } else {
+            resultContainer.innerHTML += `<h2>YOU PASSED!</h2><br><button><a href='/'>Go Back?</a></button>`;
+          }
         });
       }
     </script>
