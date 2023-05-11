@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Exam</title>
+    <link rel="stylesheet" href="exam.css" />
+  </head>
+
+  <body>
+    <div class="container mt-5">
+      <h1 id="heading" class="text-center">Welcome to the Exam!</h1>
+      <div class="text-center">
+        <div id="question-container" class="mt-5"></div>
+        <div id="result-container" class="mt-5"></div>
+        <button id="start-btn" class="btn btn-primary mt-3">Start Test</button>
+      </div>
+    </div>
+
+    <script>
+      const startbtn = document.getElementById("start-btn");
+      const headingContainer = document.getElementById("heading");
+      const questionContainer = document.getElementById("question-container");
+      const resultContainer = document.getElementById("result-container");
+      let correctAnswers = 0;
+      let questionsFetched = false;
+      let submitted = false;
+      let easyQuestion;
+      let mediumQuestion1;
+      let mediumQuestion2;
+      let mediumQuestion3;
+      let hardQuestion;
+      console.log(questionsFetched);
+
+      startbtn.addEventListener("click", fetchQuestions);
+
+      async function fetchQuestions() {
+        async function fetchEasyQuestion() {
+          easyQuestion = await fetch("/question/easy").then((response) =>
+            response.json()
+          );
+          console.log(easyQuestion);
+        }
+        async function fetchMediumQuestion() {
+          mediumQuestion1 = await fetch("/question/medium").then((response) =>
+            response.json()
+          );
+          console.log(mediumQuestion1);
+          mediumQuestion2 = await fetch("/question/medium").then((response) =>
+            response.json()
+          );
+          console.log(mediumQuestion2);
+          mediumQuestion3 = await fetch("/question/medium").then((response) =>
+            response.json()
+          );
+          console.log(mediumQuestion3);
+        }
+        async function fetchHardQuestion() {
+          hardQuestion = await fetch("/question/hard").then((response) =>
+            response.json()
+          );
+          console.log(hardQuestion);
+        }
+        fetchEasyQuestion();
+        fetchMediumQuestion();
+        fetchHardQuestion();
+        questionsFetched = true;
+        setTimeout(() => {
+          renderQuestions();
+        }, 500);
+        console.log(questionsFetched);
+      }
+
+      function renderQuestions() {
+        startbtn.style.display = "none";
+        headingContainer.innerHTML =
+          "Answer the following Questions <br/> Each Question is 1 Mark";
+        questionContainer.innerHTML = `<div class='labeldiv'>
+          <label class='questionslabel' for="question1">Question 1: ${easyQuestion.question}</label><br>
+          <input type="text" id="question1" name="question1"><br>
+          <label class='questionslabel' for="question2">Question 2: ${mediumQuestion1.question}</label><br>
+          <input type="text" id="question2" name="question2"><br>
+          <label class='questionslabel' for="question3">Question 3: ${mediumQuestion2.question}</label><br>
+          <input type="text" id="question3" name="question3"><br>
+          <label class='questionslabel' for="question3">Question 4: ${mediumQuestion3.question}</label><br>
+          <input type="text" id="question4" name="question4"><br> 
+          <label class='questionslabel' for="question3">Question 5: ${hardQuestion.question}</label><br>
+          <input type="text" id="question5" name="question5"><br>
+          <button type="submit" id="submit-btn" class="btn btn-primary mt-3">Submit</button>
+        </div>`;
+        showResults();
+      }
+
+      async function showResults() {
+        const question1 = document.getElementById("question1");
+        const question2 = document.getElementById("question2");
+        const question3 = document.getElementById("question3");
+        const question4 = document.getElementById("question4");
+        const question5 = document.getElementById("question5");
+        const submitbtn = document.getElementById("submit-btn");
+        submitbtn.addEventListener("click", function () {
+          submitted = true;
+          console.log(submitted);
+          if (question1.value === easyQuestion.answer) {
+            correctAnswers++;
+          }
+          if (question2.value === mediumQuestion1.answer) {
+            correctAnswers++;
+          }
+          if (question3.value === mediumQuestion2.answer) {
+            correctAnswers++;
+          }
+          if (question4.value === mediumQuestion3.answer) {
+            correctAnswers++;
+          }
+          if (question5.value === hardQuestion.answer) {
+            correctAnswers++;
+          }
+          headingContainer.style.display = "none";
+          questionContainer.style.display = "none";
+          resultContainer.style.display = "block";
+          resultContainer.innerHTML = `<h1>YOU GOT ${
+            5 - correctAnswers
+          } ANSWERS WRONG!</h1>`;
+          if (correctAnswers < 3) {
+            resultContainer.innerHTML += `<button onClick={location.reload()} class="btn btn-primary mt-3">Try Again</button>`;
+          } else {resultContainer.innerHTML += `<h2>YOU PASSED!</h2><br><button><a href='/'>Go Back?</a></button>`}
+        });
+      }
+    </script>
+    <footer>
+      Website by Saayuj of 8H, OOW. Github at
+      <a href="https://github.com/TsugikuniVi/GoGreenWeek"><b>this page</b></a>
+    </footer>
+  </body>
+</html>
