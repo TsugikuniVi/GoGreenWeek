@@ -1,16 +1,50 @@
 body {
+  font-size: 200%;
   background-color: #fff7d4;
   font-family: "Courier New", Courier, monospace;
   color: #4c3d3d;
   min-height: 95vh;
   display: flex;
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
   flex-direction: column;
+  margin-right: 10px;
+  margin-left: 50px;
 }
 
-h1, h3{
-    text-align: center;
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
+#heading {
+  position: sticky;
+  top: 0;
+  transition: transform 0.3s ease;
+}
+
+.sticky {
+  position: fixed !important;
+  transform: translateY(0) !important;
+}
+
+h1,
+h2 {
+  text-align: center;
+  margin: 5px;
+}
+
+h3 {
+  font-weight: 900;
+}
+
+p {
+  width: 50vw;
+  margin: 20px;
+}
 
 ul li {
   list-style-type: none;
@@ -27,4 +61,50 @@ footer a {
 
 footer a b {
   font-size: small;
+}
+
+.job {
+  display: flex;
+  align-items: center;
+}
+
+.job img {
+  width: 10vw;
+  line-height: 8vw;
+  margin: 20px;
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 80%; /* Further reduce font size for better readability */
+    margin-left: 10px;
+    margin-right: 10px;
+    line-height: 1.5;
+  }
+
+  p {
+    width: 90%; /* Adjust paragraph width for smaller screens */
+  }
+
+  .job {
+    flex-direction: column; /* Stack job elements vertically */
+    text-align: center; /* Center the job content */
+  }
+
+  #heading {
+    position: static;
+  }
+  footer {
+    font-size: 50%;
+    margin-top: auto;
+  }
+  
+  footer a {
+    color: black;
+  }
+  
+  footer a b {
+    font-size: 50%;
+  }
+  
 }
